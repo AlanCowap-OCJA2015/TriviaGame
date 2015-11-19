@@ -10,7 +10,6 @@ import static javafx.application.Application.launch;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -22,23 +21,23 @@ import javafx.stage.Stage;
  */
 public class GameScreen extends Application {
     
-    private static String question = null;
-    private static String playerName = null;
+    private String question = null;
+    private String playerName = null;
 
-    public static String getQuestion() {
+    public String getQuestion() {
         return question;
     }
 
-    public static void setQuestion(String question) {
-        GameScreen.question = question;
+    public void setQuestion(String question) {
+        this.question = question;
     }
 
-    public static String getPlayerName() {
+    public String getPlayerName() {
         return playerName;
     }
 
-    public static void setPlayerName(String playerName) {
-        GameScreen.playerName = playerName;
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
     }
 
     @Override

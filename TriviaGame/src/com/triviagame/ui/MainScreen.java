@@ -26,8 +26,8 @@ public class MainScreen extends Application {
     @Override
     public void start(Stage stage) {
        
-        Label title = new Label("Trivia Game");
-        title.setStyle("-fx-font-size: 50");
+        Label titleLabel = new Label("Trivia Game");
+        titleLabel.setStyle("-fx-font-size: 50");
         Label numPlayersText = new Label ("Select the number of players:   ");
         ComboBox numPlayersOptions = new ComboBox();
         ObservableList<String> numPlayer = 
@@ -42,13 +42,13 @@ public class MainScreen extends Application {
         hbox.getChildren().addAll(numPlayersText, numPlayersOptions);
         hbox.setAlignment(Pos.CENTER);
         VBox vbox = new VBox();
-        vbox.getChildren().addAll(title, hbox, btn);
+        vbox.getChildren().addAll(titleLabel, hbox, btn);
         vbox.setAlignment(Pos.CENTER);
         vbox.setSpacing(10);
         
         Scene scene = new Scene(vbox, 500, 500);
         
-        stage.setTitle(title.getText());
+        stage.setTitle(titleLabel.getText());
         stage.setScene(scene);
         stage.show();
     }
