@@ -9,8 +9,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
-import javafx.application.Application;
-import static javafx.application.ConditionalFeature.FXML;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -23,8 +21,6 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
-import javafx.stage.Stage;
-import javax.swing.ButtonGroup;
 
 /**
  * FXML Controller class
@@ -94,10 +90,13 @@ public class FXMLInputQuestionController implements Initializable {
           checkAnswer(choice);
             
         }
-       
-        
-        
     }
+    
+    @FXML
+    void onConfirmClick(){
+        MainScreen.getDefaultStage().setScene(new GameScreen().getScene());
+    }
+    
     void checkAnswer(String selectedAnswer){
         switch(selectedAnswer){
             case "correctAnswer1":
@@ -129,17 +128,16 @@ public class FXMLInputQuestionController implements Initializable {
     
   
 
-//   @Override
-//    public void start(Stage primaryStage) throws Exception {
-//         Parent home = FXMLLoader.load(getClass().getResource("FXMLInputQuestion.fxml"));
-//         //tableScene = new Scene(FXMLLoader.load(getClass().getResource("FXMLTable.fxml")));
-//
-//        
-//        Scene scene = new Scene(home);
-//        Scene homeScene = scene;
-//        primaryStage.setScene(scene);
-//        primaryStage.show();
-//    }
+  
+    public Scene getScene() throws Exception {
+         Parent home = FXMLLoader.load(getClass().getResource("FXMLInputQuestion.fxml"));
+         //tableScene = new Scene(FXMLLoader.load(getClass().getResource("FXMLTable.fxml")));
+
+        
+        Scene scene = new Scene(home);
+        
+        return scene;
+    }
     
     
 }

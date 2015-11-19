@@ -19,7 +19,7 @@ import javafx.stage.Stage;
  *
  * @author Przemek Stepien
  */
-public class GameScreen extends Application {
+public class GameScreen{
     
     private String question = null;
     private String playerName = null;
@@ -40,8 +40,7 @@ public class GameScreen extends Application {
         this.playerName = playerName;
     }
 
-    @Override
-    public void start(Stage stage) {
+    public Scene getScene() {
       
         Label title = new Label("Trivia Game is On!");
         Label questionLabel = new Label ("Question: ");
@@ -101,16 +100,7 @@ public class GameScreen extends Application {
                 answerBBox, answerCBox, answerDBox);
         
         Scene scene = new Scene(vbox, 500, 500);
-        stage.setTitle(title.getText());
-        stage.setScene(scene);
-        stage.show();
+        
+        return scene;
     }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
-    }
-
 }

@@ -5,8 +5,8 @@
  */
 package com.triviagame.ui;
 
-import javafx.application.Application;
-import static javafx.application.Application.launch;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,7 +20,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 /**
  *
@@ -30,7 +29,7 @@ public class PlayerSetupScreen {
 
     public Scene getScene() {
         Button confirmButton = new Button("Confirm Players");
-        Button addButton = new Button("add Player");
+        Button addButton = new Button("Add Player");
         Button cancelButton = new Button("Cancel");
         Label titleLabel = new Label("Players Setup!");
         Label playerNameLabel = new Label("Enter Player's name: ");
@@ -42,12 +41,16 @@ public class PlayerSetupScreen {
         TextField playerName = new TextField();
         ListView playersList = new ListView();
 
-        confirmButton.setOnAction(null);
-        addButton.setOnAction(new EventHandler<ActionEvent>(){
+        addButton.setOnAction(null);
+        confirmButton.setOnAction(new EventHandler<ActionEvent>(){
 
             @Override
             public void handle(ActionEvent event) {
-                
+                try {
+                    MainScreen.getDefaultStage().setScene(new FXMLInputQuestionController().getScene());
+                } catch (Exception ex) {
+                    Logger.getLogger(PlayerSetupScreen.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
             
         });
@@ -74,7 +77,5 @@ public class PlayerSetupScreen {
 
         Scene scene = new Scene(vbox, 500, 500);
         return scene;
-
     }
-
 }

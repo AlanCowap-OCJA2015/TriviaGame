@@ -24,6 +24,6 @@
       <RadioButton fx:id="correctAnswer4" layoutX="257.0" layoutY="269.0" mnemonicParsing="false" text="Correct" />
       <Separator layoutY="309.0" prefHeight="8.0" prefWidth="600.0" />
       <Button fx:id="saveButton" layoutX="18.0" layoutY="342.0" mnemonicParsing="false" onAction="#onSaveClick" text="Save Question" />
-      <Button layoutX="471.0" layoutY="342.0" mnemonicParsing="false" text="Confirm Questions" />
+      <Button layoutX="471.0" layoutY="342.0" mnemonicParsing="false" onAction="#onConfirmClick" text="Confirm Questions" />
    </children>
 </AnchorPane>
