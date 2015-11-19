@@ -7,10 +7,12 @@ package com.triviagame.ui;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
-import javafx.geometry.Insets;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -20,7 +22,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author User1
+ * @author Przemek Stepien
  */
 public class PlayerSetupScreen extends Application{
     
@@ -28,9 +30,13 @@ public class PlayerSetupScreen extends Application{
     public void start(Stage stage) {
         Button confirmButton = new Button ("Confirm Player");
         Button cancelButton = new Button ("Cancel");
-        Label instructions = new Label("Players Setup!");
-        Label title = new Label("Players setup");
-        Label playerNamePrompt = new Label ("Enter Player's name: ");
+        Label titleLabel = new Label("Players Setup!");
+        Label playerNameLabel = new Label ("Enter Player's name: ");
+        Label numQuestionsLabel = new Label ("Pick the amount of questions per player: ");
+        ComboBox numQuestionsOptions = new ComboBox();
+        ObservableList<String> numQuestions = 
+                FXCollections.observableArrayList("1", "2", "3", "4");
+        numQuestionsOptions.setItems(numQuestions);
         TextField playerName = new TextField();
         ListView playersList = new ListView();
         
@@ -40,16 +46,22 @@ public class PlayerSetupScreen extends Application{
         buttonsBox.setAlignment(Pos.CENTER);
         
         HBox playerNameInputBox = new HBox();
-        playerNameInputBox.getChildren().addAll(playerNamePrompt, playerName);
+        playerNameInputBox.getChildren().addAll(playerNameLabel, playerName);
         playerNameInputBox.setAlignment(Pos.CENTER);
+        
+        HBox numQuestionsBox = new HBox();
+        numQuestionsBox.getChildren().addAll(numQuestionsLabel, numQuestionsOptions);
+        numQuestionsBox.setAlignment(Pos.CENTER);
+        numQuestionsBox.setSpacing(10);
+        
         VBox vbox = new VBox();
         vbox.setAlignment(Pos.CENTER);
         vbox.setSpacing(10);
-        vbox.getChildren().addAll(instructions, playerNameInputBox, playersList,
-                buttonsBox);
+        vbox.getChildren().addAll(titleLabel, playerNameInputBox, playersList,
+                numQuestionsBox, buttonsBox);
         
         Scene scene = new Scene(vbox, 500, 500);
-        stage.setTitle(title.getText());
+        stage.setTitle(titleLabel.getText());
         stage.setScene(scene);
         stage.show();
     }
