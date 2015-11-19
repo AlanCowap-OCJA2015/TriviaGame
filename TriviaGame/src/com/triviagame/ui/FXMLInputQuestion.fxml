@@ -9,19 +9,19 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.triviagame.ui.FXMLInputQuestionController">
    <children>
-      <ListView layoutX="380.0" layoutY="96.0" prefHeight="197.0" prefWidth="208.0" />
-      <TextField layoutX="14.0" layoutY="24.0" prefHeight="54.0" prefWidth="581.0" />
+      <ListView fx:id="questionList" layoutX="380.0" layoutY="87.0" prefHeight="220.0" prefWidth="208.0" />
+      <TextField fx:id="questionTextField" layoutX="14.0" layoutY="24.0" prefHeight="54.0" prefWidth="581.0" />
       <Label layoutX="14.0" layoutY="6.0" prefHeight="17.0" prefWidth="59.0" text="Question" />
-      <TextField layoutX="14.0" layoutY="130.0" prefHeight="25.0" prefWidth="215.0" AnchorPane.bottomAnchor="243.0" />
-      <TextField layoutX="14.0" layoutY="175.0" prefHeight="25.0" prefWidth="215.0" />
-      <TextField layoutX="14.0" layoutY="220.0" prefHeight="25.0" prefWidth="215.0" />
-      <TextField layoutX="14.0" layoutY="265.0" prefHeight="25.0" prefWidth="215.0" />
+      <TextField fx:id="answerTextField1" layoutX="14.0" layoutY="130.0" prefHeight="25.0" prefWidth="215.0" AnchorPane.bottomAnchor="243.0" />
+      <TextField fx:id="answerTextField2" layoutX="14.0" layoutY="175.0" prefHeight="25.0" prefWidth="215.0" />
+      <TextField fx:id="answerTextField3" layoutX="14.0" layoutY="220.0" prefHeight="25.0" prefWidth="215.0" />
+      <TextField fx:id="answerTextField4" layoutX="14.0" layoutY="265.0" prefHeight="25.0" prefWidth="215.0" />
       <Label layoutX="14.0" layoutY="104.0" text="Answers" />
       <Separator layoutY="77.0" prefHeight="17.0" prefWidth="600.0" />
-      <RadioButton layoutX="257.0" layoutY="136.0" mnemonicParsing="false" text="Correct" />
-      <RadioButton layoutX="257.0" layoutY="179.0" mnemonicParsing="false" text="Correct" />
-      <RadioButton layoutX="257.0" layoutY="224.0" mnemonicParsing="false" text="Correct" />
-      <RadioButton layoutX="257.0" layoutY="269.0" mnemonicParsing="false" text="Correct" />
+      <RadioButton fx:id="correctAnswer1" layoutX="257.0" layoutY="136.0" mnemonicParsing="false" text="Correct" />
+      <RadioButton fx:id="correctAnswer2" layoutX="257.0" layoutY="179.0" mnemonicParsing="false" text="Correct" />
+      <RadioButton fx:id="correctAnswer3" layoutX="257.0" layoutY="224.0" mnemonicParsing="false" text="Correct" />
+      <RadioButton fx:id="correctAnswer4" layoutX="257.0" layoutY="269.0" mnemonicParsing="false" text="Correct" />
       <Separator layoutY="309.0" prefHeight="8.0" prefWidth="600.0" />
       <Button fx:id="saveButton" layoutX="18.0" layoutY="342.0" mnemonicParsing="false" onAction="#onSaveClick" text="Save Question" />
       <Button layoutX="471.0" layoutY="342.0" mnemonicParsing="false" text="Confirm Questions" />
