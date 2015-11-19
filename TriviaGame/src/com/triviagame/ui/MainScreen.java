@@ -8,11 +8,7 @@ package com.triviagame.ui;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.geometry.HPos;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.geometry.VPos;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -48,6 +44,7 @@ public class MainScreen extends Application {
         VBox vbox = new VBox();
         vbox.getChildren().addAll(title, hbox, btn);
         vbox.setAlignment(Pos.CENTER);
+        vbox.setSpacing(10);
         
         Scene scene = new Scene(vbox, 500, 500);
         
