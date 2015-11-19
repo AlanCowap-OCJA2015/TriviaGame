@@ -14,7 +14,7 @@ public class Player {
     private int score;
     private int questionsAnswered;
     
-    Player(String name , int score , int questionsAnswered ){
+    public Player(String name , int score , int questionsAnswered ){
         this.name = name;
         this.score = score;
         this.questionsAnswered = questionsAnswered;
