@@ -8,11 +8,12 @@ package com.triviagame.ui;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.Group;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -20,14 +21,14 @@ import javafx.stage.Stage;
  *
  * @author Przemek Stepien
  */
-public class Trivia extends Application {
+public class MainScreen extends Application {
     
     @Override
     public void start(Stage stage) {
        
-        Label title = new Label("Trivia");
-        title.setStyle("-fx-font-size: 50; -fx-text-alignment: center");
-        Label numPlayersText = new Label ("Select the number of players");
+        Label titleLabel = new Label("Trivia Game");
+        titleLabel.setStyle("-fx-font-size: 50");
+        Label numPlayersText = new Label ("Select the number of players:   ");
         ComboBox numPlayersOptions = new ComboBox();
         ObservableList<String> numPlayer = 
                 FXCollections.observableArrayList("1", "2", "3", "4");
@@ -35,13 +36,19 @@ public class Trivia extends Application {
         Button btn = new Button();
         btn.setText("New Game");
         
-        VBox vbox = new VBox();
         
-        vbox.getChildren().addAll(title, numPlayersText, numPlayersOptions, btn);
+        
+        HBox hbox = new HBox();
+        hbox.getChildren().addAll(numPlayersText, numPlayersOptions);
+        hbox.setAlignment(Pos.CENTER);
+        VBox vbox = new VBox();
+        vbox.getChildren().addAll(titleLabel, hbox, btn);
+        vbox.setAlignment(Pos.CENTER);
+        vbox.setSpacing(10);
         
         Scene scene = new Scene(vbox, 500, 500);
         
-        stage.setTitle(title.getText());
+        stage.setTitle(titleLabel.getText());
         stage.setScene(scene);
         stage.show();
     }
