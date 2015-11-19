@@ -13,6 +13,12 @@ public class Player {
     private String name ;
     private int score;
     private int questionsAnswered;
+    
+    Player(String name , int score , int questionsAnswered ){
+        this.name = name;
+        this.score = score;
+        this.questionsAnswered = questionsAnswered;
+    }
 
     public String getName() {
         return name;
