@@ -9,6 +9,8 @@ import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -24,52 +26,55 @@ import javafx.stage.Stage;
  *
  * @author Przemek Stepien
  */
-public class PlayerSetupScreen extends Application{
-    
-    @Override
-    public void start(Stage stage) {
-        Button confirmButton = new Button ("Confirm Player");
-        Button cancelButton = new Button ("Cancel");
+public class PlayerSetupScreen {
+
+    public Scene getScene() {
+        Button confirmButton = new Button("Confirm Players");
+        Button addButton = new Button("add Player");
+        Button cancelButton = new Button("Cancel");
         Label titleLabel = new Label("Players Setup!");
-        Label playerNameLabel = new Label ("Enter Player's name: ");
-        Label numQuestionsLabel = new Label ("Pick the amount of questions per player: ");
+        Label playerNameLabel = new Label("Enter Player's name: ");
+        Label numQuestionsLabel = new Label("Pick the amount of questions per player: ");
         ComboBox numQuestionsOptions = new ComboBox();
-        ObservableList<String> numQuestions = 
-                FXCollections.observableArrayList("1", "2", "3", "4");
+        ObservableList<String> numQuestions
+                = FXCollections.observableArrayList("1", "2", "3", "4");
         numQuestionsOptions.setItems(numQuestions);
         TextField playerName = new TextField();
         ListView playersList = new ListView();
-        
+
+        confirmButton.setOnAction(null);
+        addButton.setOnAction(new EventHandler<ActionEvent>(){
+
+            @Override
+            public void handle(ActionEvent event) {
+                
+            }
+            
+        });
+
         HBox buttonsBox = new HBox();
-        buttonsBox.getChildren().addAll(confirmButton, cancelButton);
+        buttonsBox.getChildren().addAll(addButton, confirmButton, cancelButton);
         buttonsBox.setSpacing(10);
         buttonsBox.setAlignment(Pos.CENTER);
-        
+
         HBox playerNameInputBox = new HBox();
         playerNameInputBox.getChildren().addAll(playerNameLabel, playerName);
         playerNameInputBox.setAlignment(Pos.CENTER);
-        
+
         HBox numQuestionsBox = new HBox();
         numQuestionsBox.getChildren().addAll(numQuestionsLabel, numQuestionsOptions);
         numQuestionsBox.setAlignment(Pos.CENTER);
         numQuestionsBox.setSpacing(10);
-        
+
         VBox vbox = new VBox();
         vbox.setAlignment(Pos.CENTER);
         vbox.setSpacing(10);
         vbox.getChildren().addAll(titleLabel, playerNameInputBox, playersList,
                 numQuestionsBox, buttonsBox);
-        
+
         Scene scene = new Scene(vbox, 500, 500);
-        stage.setTitle(titleLabel.getText());
-        stage.setScene(scene);
-        stage.show();
+        return scene;
+
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
-    }
 }

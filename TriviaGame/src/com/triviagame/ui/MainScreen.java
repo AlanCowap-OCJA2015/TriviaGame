@@ -8,6 +8,8 @@ package com.triviagame.ui;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -22,10 +24,10 @@ import javafx.stage.Stage;
  * @author Przemek Stepien
  */
 public class MainScreen extends Application {
-    
+    private static Stage defaultStage;
     @Override
     public void start(Stage stage) {
-       
+       defaultStage = stage;
         Label titleLabel = new Label("Trivia Game");
         titleLabel.setStyle("-fx-font-size: 50");
         Label numPlayersText = new Label ("Select the number of players:   ");
@@ -36,7 +38,15 @@ public class MainScreen extends Application {
         Button btn = new Button();
         btn.setText("New Game");
         
-        
+        btn.setOnAction(new EventHandler<ActionEvent>(){
+
+            @Override
+            public void handle(ActionEvent event) {
+              stage.setScene(new PlayerSetupScreen().getScene());
+              
+            }
+            
+        });
         
         HBox hbox = new HBox();
         hbox.getChildren().addAll(numPlayersText, numPlayersOptions);
@@ -59,5 +69,10 @@ public class MainScreen extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+    public static Stage getDefaultStage() {
+        return defaultStage;
+    }
+    
     
 }

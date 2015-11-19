@@ -31,7 +31,7 @@ import javax.swing.ButtonGroup;
  *
  * @author User1
  */
-public class FXMLInputQuestionController extends Application implements Initializable {
+public class FXMLInputQuestionController implements Initializable {
     @FXML
     private TextField questionTextField;
     @FXML
@@ -127,21 +127,19 @@ public class FXMLInputQuestionController extends Application implements Initiali
 //        }
 //    }
     
-   public static void main(String []args){
-       launch(args);
-   }
+  
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-         Parent home = FXMLLoader.load(getClass().getResource("FXMLInputQuestion.fxml"));
-         //tableScene = new Scene(FXMLLoader.load(getClass().getResource("FXMLTable.fxml")));
-
-        
-        Scene scene = new Scene(home);
-        Scene homeScene = scene;
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
+//   @Override
+//    public void start(Stage primaryStage) throws Exception {
+//         Parent home = FXMLLoader.load(getClass().getResource("FXMLInputQuestion.fxml"));
+//         //tableScene = new Scene(FXMLLoader.load(getClass().getResource("FXMLTable.fxml")));
+//
+//        
+//        Scene scene = new Scene(home);
+//        Scene homeScene = scene;
+//        primaryStage.setScene(scene);
+//        primaryStage.show();
+//    }
     
     
 }
